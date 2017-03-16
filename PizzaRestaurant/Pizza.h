@@ -18,7 +18,7 @@ enum PizzaSize {
 
 @interface Pizza : NSObject
 
-@property (nonatomic, strong) NSMutableArray* toppings;
+@property (nonatomic, strong) NSArray* toppings;
 @property (nonatomic, assign) enum PizzaSize size;
 
 

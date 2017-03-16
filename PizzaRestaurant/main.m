@@ -32,12 +32,15 @@ int main(int argc, const char * argv[])
 
 
 //Input for Who is Working Today && Set Kitchen Delegate
-       [inputCollector inputString];
-        if (inputCollector.whichManager == Normal){
-            //ENTER CODE TO SWITCH BETWEEN MANAGERS
+       NSString *managerInput = [inputCollector inputString];
+        
+        [restaurantKitchen whichManager:managerInput];
+        
+        
+        if (restaurantKitchen.managerChoice == Normal){
             manager = [Manager new];
         }
-        if (inputCollector.whichManager == Cheery){
+        else if (restaurantKitchen.managerChoice == Cheery){
             manager = [CheeryManager new];
         }
         
@@ -64,8 +67,7 @@ int main(int argc, const char * argv[])
 //Call the properties of the pizza
             [firstPizza thisPizza];
 
-// And then send some message to the kitchen...
-            [restaurantKitchen.delegate kitchenDidMakePizza:firstPizza];
+
         
         }
 

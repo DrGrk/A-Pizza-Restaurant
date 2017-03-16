@@ -24,7 +24,7 @@
     }
     
     if ([self.delegate kitchenShouldUpgradeOrder:self]){
-        size = (enum PizzaSize) Large;
+        size = Large;
     }
     
    
@@ -32,8 +32,7 @@
     Pizza *pizza = [[Pizza alloc] init];
     //INITIALIZE A PIZZA INSTANCE AND FILL IT WITH THESE PROPERTIES ^^
     pizza.size = size;
-    pizza.toppings = [[NSMutableArray alloc] init];
-    [pizza.toppings addObjectsFromArray:toppings];
+    pizza.toppings = toppings;
     return pizza;
     
     [self.delegate kitchenDidMakePizza:pizza];
@@ -62,7 +61,26 @@
 }
 
 
-    
+-(void)whichManager:(NSString *)inputString{
+NSInteger whichManager = ([inputString integerValue] % 3);
+
+switch (whichManager) {
+    case 0:
+        self.managerChoice = Normal;
+        break;
+        
+    case 1:
+        self.managerChoice = Cheery;
+        break;
+        
+    default:
+        self.managerChoice = None;
+        break;
+    }
+
+}
+
+
 
 @end
 

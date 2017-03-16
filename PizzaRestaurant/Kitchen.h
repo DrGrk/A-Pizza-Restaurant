@@ -11,10 +11,15 @@
 @class InputCollector;
 @class Pizza;
 
-
+enum ManagerChoice {
+    Normal,
+    Cheery,
+    None
+};
 
 @interface Kitchen : NSObject
 
+@property (nonatomic) enum ManagerChoice managerChoice;
 @property (nonatomic, assign) enum PizzaSize size;
 @property id <KitchenDelegate> delegate;
 
@@ -25,6 +30,8 @@
 -(enum PizzaSize)outputPizzaSize:(InputCollector *)inputCollector;
 
 -(NSArray *)outputToppings:(InputCollector *)inputCollector;
+
+-(void)whichManager:(NSString *)inputString;
 
 
 @end

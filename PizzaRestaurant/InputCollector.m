@@ -31,29 +31,16 @@
     [_arrayOfInput addObjectsFromArray: arrayOfInputs];
 }
 
--(void)inputString
+-(NSString *)inputString
 {
     NSLog(@"Enter A Number");
     char str[100];
     fgets (str, 100, stdin);
     
     NSString *inputString = [[NSString alloc] initWithUTF8String:str];
-    inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSInteger whichManager = ([inputString integerValue] % 3);
-    
-    switch (whichManager) {
-        case 0:
-            self.managerChoice = Normal;
-            break;
-            
-        case 1:
-            self.managerChoice = Cheery;
-            break;
-            
-        default:
-            self.managerChoice = None;
-            break;
-    }
+    NSString *inputStringTrim = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return inputStringTrim;
+    NSInteger whichManager = ([inputStringTrim integerValue] % 3);
 }
 
 @end
